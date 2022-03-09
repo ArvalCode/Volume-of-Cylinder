@@ -2,20 +2,46 @@
 #include <string>
 #include <math.h>
 #include <cmath>
+#include <Windows.h>
 
 int main() {
+	std::string input;
+	float volume, height, radius;
 	float pie = 3.14;
-	float r;
-	float h;
 
-	std::cout << "Radius : ";
-	std::cin >> r;
+	std::cout << "Cylinder (Press Radius/Voume/Height)\n";
+	std::cin >> input;
+	
+	if (input == "Radius") {
+		system("cls");
+		std::cout << "Volume: ";
+		std::cin >> volume;
 
-	std::cout << "\nHeight : ";
-	std::cin >> h;
+		std::cout << "\nHeight: ";
+		std::cin >> height;
 
-	float r2 = pow(r, 2);
+		std::cout << "\n\n\n Radius = " << sqrt(volume / (height * pie));
+	}
 
-	std::cout << "\nVolume of Cylinder = ";
-	std::cout << pie * r2 * h;
+	else if (input == "Volume") {
+		system("cls");
+		std::cout << "Radius: ";
+		std::cin >> radius;
+
+		std::cout << "\Height: ";
+		std::cin >> height;
+
+		std::cout << "Volume: " << pie * pow(radius, 2) * height;
+	}
+	else if (input == "Height") {
+		system("cls");
+		std::cout << "Radius: ";
+		std::cin >> radius;
+
+		std::cout << "\nVolume: ";
+		std::cin >> volume;
+
+		std::cout << "Height: " << volume / (pie * pow(radius, 2));
+	}
+	return 0;
 }
